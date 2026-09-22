@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Awesome Products | سلسلة مطلية بالذهب مكتوب عليها اسمها</title>
+  <meta name="description" content="سلسلة مطلية بالذهب مكتوب عليها اسمها — هدية تعبّر عن حبك لزوجتك أو أمك أو من تحب، مع ضمان مدى الحياة والدفع عند الاستلام. اطلبها الآن عبر واتساب.">
+  <meta name="theme-color" content="#FFFDF8">
+
+  <!-- TODO: replace example.com with the real domain before publishing -->
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="Awesome Products">
+  <meta property="og:title" content="Awesome Products | سلسلة مطلية بالذهب مكتوب عليها اسمها">
+  <meta property="og:description" content="دلّعها بسلسلة تحمل اسمها. مطلية بالذهب، مع ضمان مدى الحياة والدفع عند الاستلام.">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/assets/images/hero-product.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/logo.png">
+
+  <!-- Fonts: Amiri (display, matches the serif wordmark) + Tajawal (body / UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons: Font Awesome Free 6 (only core + solid + brands). Brands is needed for the genuine WhatsApp glyph. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<!--
+  ┌──────────────────────────────────────────────────────────────┐
+  │ EDITING GUIDE                                                │
+  │  • WhatsApp number, currency and message text → js/script.js │
+  │  • Prices / option names → the three .plan cards (#pricing)  │
+  │  • Text in [square brackets] is a placeholder (class "ph").  │
+  │  • Images → assets/images/  (see README.md)                  │
+  └──────────────────────────────────────────────────────────────┘
+-->
+<body>
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <!-- Decorative background (drawn by js/script.js) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════ 01 · HEADER ═══════════ -->
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="Awesome Products — الرئيسية">
+        <img class="brand__logo"
+             src="assets/images/logo.png"
+             data-fallback="https://i.postimg.cc/tgwS1SZd/awesome-products-logo.png"
+             width="522" height="401" alt="شعار Awesome Products">
+      </a>
+
+      <nav id="site-nav" class="nav" aria-label="التنقل الرئيسي">
+        <ul class="nav__list">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#features">مميزات المنتج</a></li>
+          <li><a href="#gallery">معرض الصور</a></li>
+          <li><a href="#how">طريقة الطلب</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
+          <li><a href="#returns">سياسة الإرجاع</a></li>
+        </ul>
+        <a class="btn btn--gold btn--sm nav__cta" href="#pricing" data-whatsapp>اطلب الآن</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="فتح القائمة">
+        <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+        <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ═══════════ 02 · HERO ═══════════ -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+
+        <div class="hero__copy">
+          <p class="badge" data-enter style="--i:0">
+            <i class="fa-solid fa-gift" aria-hidden="true"></i>
+            هدية تحمل اسمها
+          </p>
+
+          <h1 class="hero__title" id="hero-title" data-enter style="--i:1">خلّي اسمها قريبًا من قلبها</h1>
+
+          <!-- Client-supplied marketing message (keep wording) -->
+          <p class="hero__lead" data-enter style="--i:2">دلّعها وخلّها تحس بحبك لها، واهدها سلسلة مميزة مكتوب عليها اسمها ومطلية بالذهب، مع ضمان مدى الحياة.</p>
+
+          <p class="hero__sub" data-enter style="--i:3">اطلبها بمحادثة واحدة على واتساب، وادفع عند الاستلام.</p>
+
+          <div class="hero__actions" data-enter style="--i:4">
+            <a class="btn btn--gold btn--lg" href="#pricing" data-whatsapp>
+              <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+              اطلب الآن
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#gallery">شاهد المنتجات</a>
+          </div>
+
+          <ul class="trust" data-enter style="--i:5">
+            <li><i class="fa-solid fa-gem" aria-hidden="true"></i> مطلية بالذهب</li>
+            <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> ضمان مدى الحياة</li>
+            <li><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> الدفع عند الاستلام</li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__frame">
+            <div class="hero__arch media-ph">
+              <img src="assets/images/hero-product.jpg"
+                   data-fallback="https://i.postimg.cc/prJMJbKp/IMG-20260917-WA0001.jpg"
+                   width="1086" height="1448"
+                   alt="سلسلة مطلية بالذهب مكتوب عليها اسم"
+                   loading="eager" fetchpriority="high" decoding="async">
+            </div>
+            <p class="hero__tag">
+              <i class="fa-solid fa-signature" aria-hidden="true"></i>
+              يُكتب عليها اسم من تحب
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ 03 · BENEFITS ═══════════ -->
+    <section class="section section--tint" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="features-title">لماذا هي هدية مختلفة؟</h2>
+          <p>لأنها لا تشبه أي هدية أخرى: عليها اسمها، وتحمل معنى لا يحتاج إلى شرح.</p>
+        </div>
+
+        <ul class="benefits">
+          <li class="benefit benefit--lead">
+            <span class="benefit__icon" aria-hidden="true"><i class="fa-solid fa-signature"></i></span>
+            <div>
+              <h3>تصميم مخصص بالاسم</h3>
+              <p>نكتب على السلسلة الاسم الذي تختاره، فتصبح الهدية لها وحدها.</p>
+            </div>
+          </li>
+          <li class="benefit">
+            <span class="benefit__icon" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+            <div>
+              <h3>هدية تحمل معنى خاصًا</h3>
+              <p>لزوجتك أو أمك أو من تحب، اسمها أقرب من أي كلمة تُقال.</p>
+            </div>
+          </li>
+          <li class="benefit">
+            <span class="benefit__icon" aria-hidden="true"><i class="fa-solid fa-gem"></i></span>
+            <div>
+              <h3>مطلية بالذهب</h3>
+              <p>لمعة دافئة تليق بهدية مميزة. <span class="ph">[يمكن إضافة تفاصيل الطلاء عند اعتمادها]</span></p>
+            </div>
+          </li>
+          <li class="benefit">
+            <span class="benefit__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+            <div>
+              <h3>ضمان مدى الحياة</h3>
+              <p>وفق سياسة الشركة. اسأل عن التفاصيل عبر واتساب.</p>
+            </div>
+          </li>
+          <li class="benefit">
+            <span class="benefit__icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+            <div>
+              <h3>الدفع عند الاستلام</h3>
+              <p>تدفع عند وصول طلبك، وتُؤكَّد تفاصيل التوصيل عبر واتساب.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════ 04 · VERTICAL VIDEO (9:16) ═══════════ -->
+    <section class="section" id="video" aria-labelledby="video-title">
+      <div class="container showcase">
+        <div class="showcase__text">
+          <h2 class="section-title" id="video-title">شوف جمال الهدية بنفسك</h2>
+          <p>شاهد السلسلة عن قرب، وتخيّل لحظة تفتح فيها هديتها وتقرأ اسمها.</p>
+          <a class="btn btn--gold btn--lg" href="#pricing" data-whatsapp>اطلب الآن</a>
+        </div>
+
+        <div class="phone" data-video-frame>
+          <video controls playsinline preload="metadata" poster="assets/images/video-poster.jpg" aria-label="فيديو إعلاني للسلسلة">
+            <source src="assets/video/advertisement.mp4" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+          </video>
+          <div class="phone__missing">
+            <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+            <p>الفيديو الإعلاني سيظهر هنا قريبًا</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 05 · GALLERY ═══════════ -->
+    <section class="section section--tint" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="gallery-title">اختار شكل الهدية اللي يناسبها</h2>
+          <p>نماذج من السلاسل المكتوب عليها الأسماء. اضغط على أي صورة لتكبيرها.</p>
+        </div>
+
+        <!--
+          Each tile: local file first (assets/images/gallery-0N.jpg), remote Postimages URL as fallback.
+          Change --pos to choose which part of the photo stays visible in the cropped tile.
+        -->
+        <ul class="gallery">
+          <li>
+            <button class="tile media-ph" type="button" data-lightbox-item aria-label="تكبير الصورة ١ من ٦">
+              <img src="assets/images/gallery-01.jpg" data-fallback="https://i.postimg.cc/vHXd1yQT/Screenshot-20260906-171529-watsab-lla%CA%BFmal.png"
+                   width="1220" height="2712" alt="نموذج من السلاسل المخصصة بالاسم — الصورة ١" loading="lazy" decoding="async" style="--pos:50% 45%">
+              <span class="tile__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            </button>
+          </li>
+          <li>
+            <button class="tile media-ph" type="button" data-lightbox-item aria-label="تكبير الصورة ٢ من ٦">
+              <img src="assets/images/gallery-02.jpg" data-fallback="https://i.postimg.cc/CLJVZ0FD/Screenshot-20260906-171735-Alibaba-com.png"
+                   width="1220" height="1133" alt="نموذج من السلاسل المخصصة بالاسم — الصورة ٢" loading="lazy" decoding="async">
+              <span class="tile__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            </button>
+          </li>
+          <li>
+            <button class="tile media-ph" type="button" data-lightbox-item aria-label="تكبير الصورة ٣ من ٦">
+              <img src="assets/images/gallery-03.jpg" data-fallback="https://i.postimg.cc/h4LnBxNR/Screenshot-20260906-171323-watsab-lla%CA%BFmal.png"
+                   width="1220" height="2712" alt="نموذج من السلاسل المخصصة بالاسم — الصورة ٣" loading="lazy" decoding="async" style="--pos:50% 45%">
+              <span class="tile__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            </button>
+          </li>
+          <li>
+            <button class="tile media-ph" type="button" data-lightbox-item aria-label="تكبير الصورة ٤ من ٦">
+              <img src="assets/images/gallery-04.jpg" data-fallback="https://i.postimg.cc/NfbwytgH/Screenshot-20260906-180556-alm%CA%BFrd.png"
+                   width="1220" height="568" alt="نموذج من السلاسل المخصصة بالاسم — الصورة ٤" loading="lazy" decoding="async">
+              <span class="tile__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            </button>
+          </li>
+          <li>
+            <button class="tile media-ph" type="button" data-lightbox-item aria-label="تكبير الصورة ٥ من ٦">
+              <img src="assets/images/gallery-05.jpg" data-fallback="https://i.postimg.cc/yYnzJKV0/Screenshot-20260906-180541-alm%CA%BFrd.png"
+                   width="1220" height="815" alt="نموذج من السلاسل المخصصة بالاسم — الصورة ٥" loading="lazy" decoding="async">
+              <span class="tile__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            </button>
+          </li>
+          <li>
+            <button class="tile media-ph" type="button" data-lightbox-item aria-label="تكبير الصورة ٦ من ٦">
+              <img src="assets/images/gallery-06.jpg" data-fallback="https://i.postimg.cc/KcPb2LwJ/Screenshot-20260906-171401-watsab-lla%CA%BFmal.png"
+                   width="1220" height="2712" alt="نموذج من السلاسل المخصصة بالاسم — الصورة ٦" loading="lazy" decoding="async" style="--pos:50% 45%">
+              <span class="tile__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            </button>
+          </li>
+        </ul>
+
+        <p class="note">الصور للاستعراض، وتُؤكَّد الخيارات المتاحة معك عبر واتساب.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ 06 + 07 · PRICING & WHATSAPP ORDER ═══════════ -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="pricing-title">اختر خيارك واطلب هديتك</h2>
+          <p>اختر الخيار المناسب ثم أكمل الطلب عبر واتساب. الدفع عند الاستلام.</p>
+        </div>
+
+        <!--
+          EDIT HERE: change the three names, descriptions and prices.
+          The WhatsApp message reads [data-plan-name] and [data-plan-price] from these cards.
+          Currency is set once in js/script.js (CURRENCY_LABEL).
+        -->
+        <div class="plans" role="group" aria-label="خيارات السلسلة">
+
+          <article class="plan" data-plan="1">
+            <label class="plan__select">
+              <input class="plan__radio" type="radio" name="plan" value="1">
+              <span class="plan__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+              <span class="plan__name ph" data-plan-name>[اسم الخيار 1]</span>
+              <span class="plan__desc ph">[وصف مختصر للخيار]</span>
+              <span class="plan__price"><b class="ph" data-plan-price>[السعر]</b> <small data-currency></small></span>
+            </label>
+            <p class="plan__cod"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> الدفع عند الاستلام</p>
+            <a class="btn btn--gold" href="#pricing" data-whatsapp>
+              <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+              اطلب هذا الخيار
+            </a>
+          </article>
+
+          <article class="plan" data-plan="2">
+            <label class="plan__select">
+              <input class="plan__radio" type="radio" name="plan" value="2">
+              <span class="plan__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+              <span class="plan__name ph" data-plan-name>[اسم الخيار 2]</span>
+              <span class="plan__desc ph">[وصف مختصر للخيار]</span>
+              <span class="plan__price"><b class="ph" data-plan-price>[السعر]</b> <small data-currency></small></span>
+            </label>
+            <p class="plan__cod"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> الدفع عند الاستلام</p>
+            <a class="btn btn--gold" href="#pricing" data-whatsapp>
+              <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+              اطلب هذا الخيار
+            </a>
+          </article>
+
+          <article class="plan" data-plan="3">
+            <label class="plan__select">
+              <input class="plan__radio" type="radio" name="plan" value="3">
+              <span class="plan__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+              <span class="plan__name ph" data-plan-name>[اسم الخيار 3]</span>
+              <span class="plan__desc ph">[وصف مختصر للخيار]</span>
+              <span class="plan__price"><b class="ph" data-plan-price>[السعر]</b> <small data-currency></small></span>
+            </label>
+            <p class="plan__cod"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> الدفع عند الاستلام</p>
+            <a class="btn btn--gold" href="#pricing" data-whatsapp>
+              <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+              اطلب هذا الخيار
+            </a>
+          </article>
+
+        </div>
+
+        <div class="order">
+          <div class="field">
+            <label for="customer-name">الاسم المطلوب كتابته على السلسلة <span class="field__opt">(اختياري)</span></label>
+            <input id="customer-name" type="text" dir="auto" maxlength="30" autocomplete="off" placeholder="مثال: نورة">
+            <p class="field__hint">يُضاف الاسم إلى رسالة واتساب فقط، ولا نحفظ أي بيانات على هذه الصفحة. يمكنك أيضًا إرساله لاحقًا في المحادثة.</p>
+          </div>
+          <a class="btn btn--gold btn--lg order__cta" href="#pricing" data-whatsapp>
+            <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+            اطلب الآن عبر واتساب
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 10 · HOW TO ORDER ═══════════ -->
+    <section class="section section--tint" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="how-title">كيف تطلب؟</h2>
+          <p>أربع خطوات بسيطة، وكلها داخل محادثة واتساب واحدة.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">١</span>
+            <div>
+              <h3>اختر السلسلة المناسبة</h3>
+              <p>تصفّح النماذج والخيارات، واختر ما يناسب من تحب.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">٢</span>
+            <div>
+              <h3>أرسل لنا الاسم عبر واتساب</h3>
+              <p>اكتب الاسم المطلوب وأكّد الخيار الذي اخترته.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">٣</span>
+            <div>
+              <h3>أكّد بيانات الطلب</h3>
+              <p>نراجع معك التفاصيل وبيانات التوصيل داخل المحادثة.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">٤</span>
+            <div>
+              <h3>استلم هديتك وادفع عند الاستلام</h3>
+              <p>تدفع عند وصول الطلب، حسب آلية الدفع عند الاستلام لدينا.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="note note--start">مدة التجهيز والتوصيل ورسومه: <span class="ph">[تُحدد بواسطة الشركة]</span></p>
+      </div>
+    </section>
+
+    <!-- ═══════════ 11 · EMOTIONAL / TRUST ═══════════ -->
+    <section class="gift" id="gift" aria-labelledby="gift-title">
+      <div class="container gift__inner">
+        <p class="gift__for"><span>لزوجتك</span><span>لأمك</span><span>لمن تحب</span></p>
+        <h2 class="gift__statement" id="gift-title">هدية بسيطة، لكن معناها كبير.</h2>
+        <p class="gift__text">اسمها على هدية خُصِّصت لها وحدها. خلّي لحظتها مميزة بهدية تحمل اسمها.</p>
+        <a class="btn btn--gold btn--lg" href="#pricing" data-whatsapp>
+          <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+          اطلب سلسلتك عبر واتساب
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════ 12 · FAQ ═══════════ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="faq-title">الأسئلة الشائعة</h2>
+          <p>إجابات سريعة عن أكثر ما يسأل عنه العملاء.</p>
+        </div>
+
+        <!-- Answers containing [brackets] are placeholders until the business confirms its policies. -->
+        <div class="faq">
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">هل السلسلة مكتوب عليها الاسم الذي أختاره؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div><p>نعم، السلسلة تُصنع بالاسم الذي تحدده. أرسل لنا الاسم عبر واتساب لنؤكد معك التفاصيل. <span class="ph">[اللغات والخطوط المتاحة للأسماء: تُحدد بواسطة الشركة]</span></p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">هل المنتج مطلي بالذهب؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div><p>نعم، السلاسل مطلية بالذهب. <span class="ph">[تفاصيل نوع الطلاء: تُحدد بواسطة الشركة]</span></p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">كيف أطلب السلسلة؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div><p>اضغط «اطلب الآن» وستفتح محادثة واتساب برسالة جاهزة. أرسل الاسم المطلوب وأكّد بيانات الطلب معنا داخل المحادثة.</p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">هل الدفع عند الاستلام متاح؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div><p>نعم، الدفع عند الاستلام متاح. <span class="ph">[مناطق التوصيل المشمولة: تُحدد بواسطة الشركة]</span></p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5">ما الخيارات والأسعار المتاحة؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div><p>تجد الخيارات والأسعار في قسم «اختر خيارك واطلب هديتك». وللاستفسار عن أي خيار، تواصل معنا عبر واتساب.</p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-6" aria-expanded="false" aria-controls="faq-a-6">كم مدة تجهيز الطلب والتوصيل؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-6" role="region" aria-labelledby="faq-q-6"><div><p><span class="ph">[مدة التجهيز والتوصيل: تُحدد بواسطة الشركة]</span> اسأل عن المدة المتوقعة لمنطقتك عند التواصل عبر واتساب.</p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-7" aria-expanded="false" aria-controls="faq-a-7">هل يوجد ضمان مدى الحياة؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-7" role="region" aria-labelledby="faq-q-7"><div><p>نعم، نقدّم ضمانًا مدى الحياة وفق سياسة الشركة. <span class="ph">[شروط الضمان وطريقة الاستفادة منه: تُحدد بواسطة الشركة]</span></p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-8" aria-expanded="false" aria-controls="faq-a-8">هل يمكن تعديل الاسم بعد تأكيد الطلب؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-8" role="region" aria-labelledby="faq-q-8"><div><p><span class="ph">[سياسة تعديل الاسم: تُحدد بواسطة الشركة]</span> نوصي بمراجعة الاسم بعناية قبل التأكيد، وإبلاغنا فورًا عبر واتساب إن احتجت لأي تعديل.</p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-9" aria-expanded="false" aria-controls="faq-a-9">هل يمكن إرجاع السلسلة أو استبدالها؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-9" role="region" aria-labelledby="faq-q-9"><div><p>تُطبَّق سياسة الإرجاع المعتمدة من الشركة، وتجدها في قسم «سياسة الإرجاع» أدناه. <span class="ph">[التفاصيل: تُحدد بواسطة الشركة]</span></p></div></div>
+          </div>
+
+          <div class="faq__item">
+            <h3><button class="faq__q" type="button" id="faq-q-10" aria-expanded="false" aria-controls="faq-a-10">كيف أتواصل مع خدمة العملاء؟<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+            <div class="faq__a" id="faq-a-10" role="region" aria-labelledby="faq-q-10"><div><p>عبر واتساب على الرقم <a class="text-link" href="#faq" data-whatsapp-chat><bdi dir="ltr" data-phone-display>واتساب</bdi></a>.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 13 · RETURN POLICY ═══════════ -->
+    <section class="section section--tint" id="returns" aria-labelledby="returns-title">
+      <div class="container returns">
+        <div class="section-head">
+          <h2 class="section-title" id="returns-title">سياسة الإرجاع</h2>
+          <p>يرجى مراجعة سياسة الإرجاع المعتمدة من الشركة قبل إتمام الطلب.</p>
+          <p class="returns__soon">سيتم نشر التفاصيل الرسمية هنا فور اعتمادها.</p>
+        </div>
+
+        <!-- Placeholder structure only. Replace each [bracketed] value with the official policy. -->
+        <dl class="policy">
+          <div class="policy__row"><dt>شروط قبول الإرجاع</dt><dd><span class="ph">[تُحدد بواسطة الشركة]</span></dd></div>
+          <div class="policy__row"><dt>مدة الإرجاع</dt><dd><span class="ph">[تُحدد بواسطة الشركة]</span></dd></div>
+          <div class="policy__row"><dt>المنتجات المخصصة بالاسم</dt><dd><span class="ph">[تُحدد سياسة الشركة]</span></dd></div>
+          <div class="policy__row"><dt>تكاليف الشحن عند الإرجاع</dt><dd><span class="ph">[تُحدد بواسطة الشركة]</span></dd></div>
+          <div class="policy__row"><dt>طريقة التواصل لطلب الإرجاع</dt><dd>عبر واتساب: <a class="text-link" href="#returns" data-whatsapp-chat><bdi dir="ltr" data-phone-display>واتساب</bdi></a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ 14 · FOOTER ═══════════ -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img class="footer__logo"
+             src="assets/images/logo.png"
+             data-fallback="https://i.postimg.cc/tgwS1SZd/awesome-products-logo.png"
+             width="522" height="401" alt="Awesome Products" loading="lazy">
+        <p>سلاسل مطلية بالذهب مكتوب عليها أسماء من تحب. هدية تعبّر عمّا لا تقوله الكلمات.</p>
+        <a class="btn btn--gold" href="#pricing" data-whatsapp>
+          <span class="btn__wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+          تواصل معنا عبر واتساب
+        </a>
+      </div>
+
+      <nav class="footer__nav" aria-label="روابط التذييل">
+        <h2 class="footer__h">روابط سريعة</h2>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#features">مميزات المنتج</a></li>
+          <li><a href="#gallery">معرض الصور</a></li>
+          <li><a href="#how">طريقة الطلب</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
+          <li><a href="#returns">سياسة الإرجاع</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <h2 class="footer__h">تواصل معنا</h2>
+        <p>واتساب: <a class="text-link" href="#pricing" data-whatsapp-chat><bdi dir="ltr" data-phone-display>واتساب</bdi></a></p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© <span data-year>2026</span> Awesome Products. جميع الحقوق محفوظة.</p>
+      <p class="footer__legal">واتساب علامة تجارية مملوكة لأصحابها، ولا توجد أي شراكة أو رعاية أو تأييد من واتساب لهذا الموقع.</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════ 08 · DESKTOP FLOATING WHATSAPP ═══════════ -->
+  <a class="wa-float" href="#pricing" data-whatsapp aria-label="تواصل معنا عبر واتساب">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span class="wa-float__label" aria-hidden="true">تواصل معنا</span>
+  </a>
+
+  <!-- ═══════════ 09 · MOBILE FIXED ORDER BAR ═══════════ -->
+  <div class="order-bar" role="region" aria-label="طلب سريع">
+    <div class="order-bar__price">
+      <span class="order-bar__label" data-bar-label>السعر</span>
+      <strong class="order-bar__value ph" data-bar-price>[السعر]</strong>
+    </div>
+    <a class="btn btn--gold order-bar__cta" href="#pricing" data-whatsapp>اطلب الآن</a>
+    <a class="order-bar__wa" href="#pricing" data-whatsapp aria-label="تواصل معنا عبر واتساب">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!-- Gallery lightbox (native <dialog>: focus trap + Esc handled by the browser) -->
+  <dialog class="lightbox" id="lightbox" aria-label="عرض الصورة">
+    <div class="lightbox__inner">
+      <button class="lightbox__btn lightbox__close" type="button" data-lb-close aria-label="إغلاق"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <button class="lightbox__btn lightbox__prev" type="button" data-lb-prev aria-label="الصورة السابقة"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" alt="">
+        <figcaption class="lightbox__count" data-lb-count></figcaption>
+      </figure>
+      <button class="lightbox__btn lightbox__next" type="button" data-lb-next aria-label="الصورة التالية"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+    </div>
+  </dialog>
+
+  <!-- Live region: short confirmation that WhatsApp is opening -->
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
