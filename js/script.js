@@ -12,8 +12,8 @@ const WHATSAPP_NUMBER = "966567025627";
 // How the number is shown to visitors (FAQ, return policy, footer).
 const WHATSAPP_DISPLAY = "+966 56 702 5627";
 
-// Shown after every price. Replace with the confirmed currency, e.g. "ر.س".
-const CURRENCY_LABEL = "[العملة]";
+// Arabic currency label, displayed with every price.
+const CURRENCY_LABEL = "ريال";
 
 // The pre-filled WhatsApp message. The greeting MUST stay exactly as supplied.
 const MESSAGE_GREETING = "السلام عليكم  أبي أطلب سلسلة مخصّصة بالاسم 🤍";
@@ -34,8 +34,11 @@ const NAME_MAX_LENGTH = 30;
   "use strict";
 
   const $ = (selector, scope = document) => scope.querySelector(selector);
-  const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const $$ = (selector, scope = document) =>
+    Array.from(scope.querySelectorAll(selector));
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
 
   /* ---------- Images: local file first, remote URL as a safety net ---------- */
   function initImageFallbacks() {
@@ -49,7 +52,8 @@ const NAME_MAX_LENGTH = 30;
         img.src = img.dataset.fallback;
       };
       img.addEventListener("error", useFallback);
-      if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) useFallback();
+      if (img.complete && img.naturalWidth === 0 && img.getAttribute("src"))
+        useFallback();
     });
   }
 
@@ -70,14 +74,18 @@ const NAME_MAX_LENGTH = 30;
     const isOpen = () => nav.classList.contains("is-open");
 
     toggle.addEventListener("click", () => setOpen(!isOpen()));
-    nav.addEventListener("click", (event) => { if (event.target.closest("a")) setOpen(false); });
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setOpen(false);
+    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isOpen()) setOpen(false, true);
     });
     document.addEventListener("click", (event) => {
       if (isOpen() && !header.contains(event.target)) setOpen(false);
     });
-    window.matchMedia("(min-width: 900px)").addEventListener("change", () => setOpen(false));
+    window
+      .matchMedia("(min-width: 900px)")
+      .addEventListener("change", () => setOpen(false));
 
     // Sticky header gets a blurred background once the page scrolls.
     let ticking = false;
@@ -85,9 +93,16 @@ const NAME_MAX_LENGTH = 30;
       header.classList.toggle("is-scrolled", window.scrollY > 8);
       ticking = false;
     };
-    window.addEventListener("scroll", () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true },
+    );
     update();
   }
 
@@ -106,7 +121,9 @@ const NAME_MAX_LENGTH = 30;
     const lines = [MESSAGE_GREETING, ""];
     lines.push(`الخيار: ${plan ? plan.name : MESSAGE_NO_OPTION}`);
     if (plan) lines.push(`السعر: ${plan.price}`);
-    lines.push(`الاسم المطلوب كتابته على السلسلة: ${customerName || MESSAGE_NAME_LATER}`);
+    lines.push(
+      `الاسم المطلوب كتابته على السلسلة: ${customerName || MESSAGE_NAME_LATER}`,
+    );
     lines.push("", MESSAGE_CLOSING);
     return lines.join("\n");
   }
@@ -127,9 +144,15 @@ const NAME_MAX_LENGTH = 30;
     const state = { plan: null, name: "" };
 
     // Fill values that come from the config block.
-    $$("[data-currency]").forEach((el) => { el.textContent = CURRENCY_LABEL; });
-    $$("[data-phone-display]").forEach((el) => { el.textContent = WHATSAPP_DISPLAY; });
-    $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
+    $$("[data-currency]").forEach((el) => {
+      el.textContent = CURRENCY_LABEL;
+    });
+    $$("[data-phone-display]").forEach((el) => {
+      el.textContent = WHATSAPP_DISPLAY;
+    });
+    $$("[data-year]").forEach((el) => {
+      el.textContent = new Date().getFullYear();
+    });
 
     // Every link that opens WhatsApp does so in a new tab and says so to screen readers.
     $$("[data-whatsapp], [data-whatsapp-chat]").forEach((link) => {
@@ -146,20 +169,35 @@ const NAME_MAX_LENGTH = 30;
     const readPlan = (card) => {
       const name = ($("[data-plan-name]", card) || {}).textContent || "";
       const price = ($("[data-plan-price]", card) || {}).textContent || "";
-      return { id: card.dataset.plan, name: name.trim(), price: `${price.trim()} ${CURRENCY_LABEL}`.trim() };
+      const displayPrice = price.trim();
+      return {
+        id: card.dataset.plan,
+        name: name.trim(),
+        displayPrice,
+        price: `${displayPrice} ${CURRENCY_LABEL}`.trim(),
+      };
     };
+
+    // The only available plan is selected by default for every order link.
+    if (cards[0]) state.plan = readPlan(cards[0]);
 
     const refreshLinks = () => {
       $$("[data-whatsapp]").forEach((link) => {
         const card = link.closest("[data-plan]");
         link.href = orderUrl(card ? readPlan(card) : state.plan, state.name);
       });
-      $$("[data-whatsapp-chat]").forEach((link) => { link.href = chatUrl(); });
+      $$("[data-whatsapp-chat]").forEach((link) => {
+        link.href = chatUrl();
+      });
     };
 
     const refreshBar = () => {
-      if (barLabel) barLabel.textContent = state.plan ? state.plan.name : defaults.label;
-      if (barPrice) barPrice.textContent = state.plan ? state.plan.price : defaults.price;
+      if (barLabel)
+        barLabel.textContent = state.plan ? state.plan.name : defaults.label;
+      if (barPrice)
+        barPrice.textContent = state.plan
+          ? state.plan.displayPrice
+          : defaults.price;
     };
 
     const select = (card) => {
@@ -181,14 +219,19 @@ const NAME_MAX_LENGTH = 30;
 
     if (nameInput) {
       nameInput.addEventListener("input", () => {
-        state.name = nameInput.value.replace(/\s+/g, " ").trim().slice(0, NAME_MAX_LENGTH);
+        state.name = nameInput.value
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, NAME_MAX_LENGTH);
         refreshLinks();
       });
     }
 
     // Last-moment refresh so the link always matches the latest choices.
     document.addEventListener("click", (event) => {
-      const link = event.target.closest("[data-whatsapp], [data-whatsapp-chat]");
+      const link = event.target.closest(
+        "[data-whatsapp], [data-whatsapp-chat]",
+      );
       if (!link) return;
       const card = link.closest("[data-plan]");
       if (card && link.hasAttribute("data-whatsapp")) select(card);
@@ -221,7 +264,12 @@ const NAME_MAX_LENGTH = 30;
     buttons.forEach((button, index) => {
       button.addEventListener("keydown", (event) => {
         const last = buttons.length - 1;
-        const target = { ArrowDown: index + 1, ArrowUp: index - 1, Home: 0, End: last }[event.key];
+        const target = {
+          ArrowDown: index + 1,
+          ArrowUp: index - 1,
+          Home: 0,
+          End: last,
+        }[event.key];
         if (target === undefined) return;
         event.preventDefault();
         buttons[(target + buttons.length) % buttons.length].focus();
@@ -233,7 +281,8 @@ const NAME_MAX_LENGTH = 30;
   function initLightbox() {
     const dialog = $("#lightbox");
     const tiles = $$("[data-lightbox-item]");
-    if (!dialog || typeof dialog.showModal !== "function" || !tiles.length) return;
+    if (!dialog || typeof dialog.showModal !== "function" || !tiles.length)
+      return;
 
     const image = $(".lightbox__img", dialog);
     const counter = $("[data-lb-count]", dialog);
@@ -256,10 +305,18 @@ const NAME_MAX_LENGTH = 30;
       });
     });
 
-    $("[data-lb-close]", dialog).addEventListener("click", () => dialog.close());
-    $("[data-lb-prev]", dialog).addEventListener("click", () => show(index - 1));
-    $("[data-lb-next]", dialog).addEventListener("click", () => show(index + 1));
-    dialog.addEventListener("close", () => document.documentElement.classList.remove("is-locked"));
+    $("[data-lb-close]", dialog).addEventListener("click", () =>
+      dialog.close(),
+    );
+    $("[data-lb-prev]", dialog).addEventListener("click", () =>
+      show(index - 1),
+    );
+    $("[data-lb-next]", dialog).addEventListener("click", () =>
+      show(index + 1),
+    );
+    dialog.addEventListener("close", () =>
+      document.documentElement.classList.remove("is-locked"),
+    );
 
     // Click on the dark area closes the viewer.
     dialog.addEventListener("click", (event) => {
@@ -284,7 +341,8 @@ const NAME_MAX_LENGTH = 30;
     if (source) source.addEventListener("error", markMissing);
     video.addEventListener("error", markMissing);
     window.addEventListener("load", () => {
-      if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) markMissing();
+      if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE)
+        markMissing();
     });
   }
 
@@ -300,9 +358,9 @@ const NAME_MAX_LENGTH = 30;
     const FRAME_MS = 1000 / 30; // 30 fps is plenty for slow ambient motion
 
     const chainDefs = [
-      { y: 0.17, amp: 0.045, span: 1.1, speed: 0.10, alpha: 0.17, phase: 0.0 },
-      { y: 0.54, amp: 0.070, span: 1.4, speed: -0.07, alpha: 0.13, phase: 2.0 },
-      { y: 0.87, amp: 0.050, span: 0.9, speed: 0.085, alpha: 0.15, phase: 4.0 },
+      { y: 0.17, amp: 0.045, span: 1.1, speed: 0.1, alpha: 0.17, phase: 0.0 },
+      { y: 0.54, amp: 0.07, span: 1.4, speed: -0.07, alpha: 0.13, phase: 2.0 },
+      { y: 0.87, amp: 0.05, span: 0.9, speed: 0.085, alpha: 0.15, phase: 4.0 },
     ];
 
     let width = 0;
@@ -316,13 +374,19 @@ const NAME_MAX_LENGTH = 30;
     const rand = (min, max) => min + Math.random() * (max - min);
 
     function seedParticles() {
-      const count = Math.max(16, Math.min(48, Math.round((width * height) / 28000)));
+      const count = Math.max(
+        16,
+        Math.min(48, Math.round((width * height) / 28000)),
+      );
       particles = Array.from({ length: count }, () => ({
-        x: Math.random(), y: Math.random(),            // normalised 0..1, so resizing never re-seeds
+        x: Math.random(),
+        y: Math.random(), // normalised 0..1, so resizing never re-seeds
         r: rand(0.7, 2.4),
-        rise: rand(0.004, 0.014),                      // screen-heights per second
-        sway: rand(0.004, 0.012), swaySpeed: rand(0.2, 0.6),
-        phase: rand(0, TAU), twinkle: rand(0.6, 1.6),
+        rise: rand(0.004, 0.014), // screen-heights per second
+        sway: rand(0.004, 0.012),
+        swaySpeed: rand(0.2, 0.6),
+        phase: rand(0, TAU),
+        twinkle: rand(0.6, 1.6),
         alpha: rand(0.2, 0.52),
         tone: Math.random() < 0.35 ? LIGHT : GOLD,
       }));
@@ -344,14 +408,19 @@ const NAME_MAX_LENGTH = 30;
 
     const chainY = (def, x, t) => {
       const u = (x / (width * def.span)) * TAU;
-      return def.y * height
-        + def.amp * height * (Math.sin(u + t * def.speed * TAU + def.phase)
-        + 0.35 * Math.sin(u * 2.1 - t * def.speed * 1.7 * TAU + def.phase * 1.3));
+      return (
+        def.y * height +
+        def.amp *
+          height *
+          (Math.sin(u + t * def.speed * TAU + def.phase) +
+            0.35 *
+              Math.sin(u * 2.1 - t * def.speed * 1.7 * TAU + def.phase * 1.3))
+      );
     };
 
     function drawGlow(t) {
       const spots = [
-        { x: 0.2 + 0.05 * Math.sin(t * 0.05), y: 0.25, r: 0.55, a: 0.20 },
+        { x: 0.2 + 0.05 * Math.sin(t * 0.05), y: 0.25, r: 0.55, a: 0.2 },
         { x: 0.85 + 0.05 * Math.cos(t * 0.04), y: 0.7, r: 0.6, a: 0.16 },
       ];
       spots.forEach((s) => {
@@ -387,21 +456,29 @@ const NAME_MAX_LENGTH = 30;
     function drawParticles(t) {
       particles.forEach((p) => {
         const x = (p.x + Math.sin(t * p.swaySpeed + p.phase) * p.sway) * width;
-        const y = (((p.y - t * p.rise) % 1) + 1) % 1 * height;
-        const alpha = p.alpha * (0.65 + 0.35 * Math.sin(t * p.twinkle + p.phase));
+        const y = ((((p.y - t * p.rise) % 1) + 1) % 1) * height;
+        const alpha =
+          p.alpha * (0.65 + 0.35 * Math.sin(t * p.twinkle + p.phase));
 
         ctx.fillStyle = `rgba(${p.tone},${alpha * 0.18})`;
-        ctx.beginPath(); ctx.arc(x, y, p.r * 4, 0, TAU); ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x, y, p.r * 4, 0, TAU);
+        ctx.fill();
         ctx.fillStyle = `rgba(${p.tone},${alpha})`;
-        ctx.beginPath(); ctx.arc(x, y, p.r, 0, TAU); ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x, y, p.r, 0, TAU);
+        ctx.fill();
 
-        if (p.r > 1.9) { // a tiny glint on the larger sparks
+        if (p.r > 1.9) {
+          // a tiny glint on the larger sparks
           const len = p.r * 4;
           ctx.strokeStyle = `rgba(${LIGHT},${alpha * 0.7})`;
           ctx.lineWidth = 0.6;
           ctx.beginPath();
-          ctx.moveTo(x - len, y); ctx.lineTo(x + len, y);
-          ctx.moveTo(x, y - len); ctx.lineTo(x, y + len);
+          ctx.moveTo(x - len, y);
+          ctx.lineTo(x + len, y);
+          ctx.moveTo(x, y - len);
+          ctx.lineTo(x, y + len);
           ctx.stroke();
         }
       });
